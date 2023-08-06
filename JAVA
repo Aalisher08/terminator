@@ -1,0 +1,191 @@
+let question = document.querySelector('.question');
+let answers = document.querySelectorAll('.answer');
+let container_h3 = document.querySelector('.container_h3');
+let button = document.querySelector('button');
+let wrapper = document.querySelector('.wrapper');
+
+function randint(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+
+let SIGNS = ['+', '-', '*'];
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    //Цикл повторяется до тех пор, пока остаются элементы для перемешивания
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    // Выбираем оставшийся элемент.
+
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      //Меняем местами с текущим элементом.
+
+      array[randomIndex],
+
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+  // Возвращаем перемешанный массив
+}
+
+class Question {
+  constructor() {
+    let first = randint(1, 30); //1ч
+
+    let second = randint(1, 30); //2ч
+
+    let sign = SIGNS[randint(0, 2)];
+
+    this.question = ${first} ${sign} ${second}; // Наш вопрос
+
+    let result = 0;
+
+    for (let i = 0; i < 4; i += 1) {
+      if (sign === '+') {
+        result = first + second;
+      } else if (sign === '-') {
+        result = first - second;
+      } else if (sign === '/') {
+        result = first / second;
+      } else {
+        result = first * second;
+      }
+
+      this.answers.push(randint(result - 15, 30));
+    }
+    // Заполняем 4 неверных ответа
+
+    this.answers.push(result);
+    //Пятый правильный ответ
+
+    shuffle(this.answers);
+
+    this.correct_answer = result;
+  }
+
+  question = '';
+
+  answers = [];
+
+  correct_answer = 0;
+
+  display() {
+    question.innerHTML = this.question;
+
+    for (let i = 0; i < answers.length; i += 1) {
+      answers[i].innerHTML = this.answers[i];
+    }
+  }
+}
+let newQ1 = new Question();
+let newQ2 = new Question();
+let newQ3 = new Question();
+let newQ4 = new Question();
+let newQ5 = new Question();
+let newQ6 = new Question();
+let newQ7 = new Question();
+let newQ8 = new Question();
+let newQ9 = new Question();
+let newQ10 = new Question();
+let newQ11 = new Question();
+let newQ12 = new Question();
+let newQ13 = new Question();
+let newQ14 = new Question();
+let newQ15 = new Question();
+let newQ16 = new Question();
+let newQ17 = new Question();
+let newQ18 = new Question();
+let newQ19 = new Question();
+let newQ20 = new Question();
+
+const questions = [];
+//массив_вопросов
+questions.push(
+  newQ1,
+  newQ2,
+  newQ3,
+  newQ4,
+  newQ5,
+  newQ6,
+  newQ7,
+  newQ8,
+  newQ9,
+  newQ10,
+  newQ11,
+  newQ12,
+  newQ13,
+  newQ14,
+  newQ15,
+  newQ16,
+  newQ17,
+  newQ18,
+  newQ19,
+  newQ20
+);
+
+let question_number = 1; // счётчик_вопросов
+let current_question = questions[question_number]; //текущий_вопрос
+let correct_answers_given = 0; // кол-во_правильных_ответов
+
+for (let i = 0; i < answers.length; i++) {
+  answers[i].addEventListener('click', function () {
+    answers[i].classList.add('choosen');
+    if (
+      current_question.correct_answer.toString() ===
+      answers[i].innerHTML.toString()
+    ) {
+
+      // Определяем свойства анимации
+      anime({
+        targets: '.choosen',
+        backgroundColor: '#00ff00',
+        duration: 1000,
+      });
+
+      correct_answers_given = correct_answers_given + 1;
+    } else {
+      // Определяем свойства анимации
+      anime({
+        targets: '.choosen',
+        backgroundColor: '#ff0000',
+        duration: 1000,
+      });
+    }
+
+    setTimeout(function () {
+      // Определяем свойства анимации
+      anime({
+        targets: '.choosen',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        duration: 1000,
+      });
+
+      answers[i].classList.remove('choosen');
+
+      question_number = question_number + 1;
+
+      current_question = questions[question_number];
+
+      current_question.display();
+    }, 1000);
+  });
+}
+setTimeout(1000)
+current_question.display();
+button.addEventListener('click', function () {
+  button.style.display = 'none';
+
+  wrapper.style.display = 'block';
+setTimeout(function () {
+    container_h3.innerHTML = `Вы дали ${correct_answers_given} правильных ответов из ${question_number} Точность - ${
+      (correct_answers_given / question_number) * 100
+    }%`;
+  }, 60000);
+});
