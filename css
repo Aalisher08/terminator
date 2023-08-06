@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <title>Home</title> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width" /> 
+    <link rel="stylesheet" href="styles.css" /> 
+    <script type="module" src="script.js"></script> 
+  </head> 
+  <body> 
+    <button>Начать</button> 
+    <div class="wrapper"> 
+      <h3 class="container_h3"></h3> 
+      <div class="question">4*21</div> 
+      <div class="answers"> 
+        <div class="answer">77</div> 
+        <div class="answer">74</div> 
+        <div class="answer">84</div> 
+        <div class="answer">100</div> 
+        <div class="answer">85</div> 
+      </div> 
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script> 
+  </body> 
+</html>
