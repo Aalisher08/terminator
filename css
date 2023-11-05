@@ -8,6 +8,11 @@
 a{
     text-decoration: none   ;
 }
+main{
+    background: #FBFAFF;
+text-align: center;
+
+}
 .container{
     display: flex;
     align-items: center;
@@ -16,18 +21,33 @@ a{
     width: 100%;
     max-width: 1200px;
     margin: auto;
+    text-align: left;
 }
 .header .container{
     padding: 40px 15px;
     justify-content: space-between;
-    background-color: green;
+    background-color: #FBFAFF;
+    ;
+}
+.container1{
+text-align: left;
+}
+.Container2{
+    text-align: left;
+    background-color: #f2f2f2;
+    width: Fill (1,920px);
+height: Hug (1,048px);
+padding: 200px, 0px, 200px, 0px;
+
 }
 .nav{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
+    width: Fixed (229px);
+height: Hug (60px);
+padding: 12px, 24px, 12px, 24px;
+border-radius: 8px;
+gap: 10px;
+text-align: left;
+
 }
 .nav a{
     color: #000;
@@ -39,12 +59,32 @@ a{
 }
 
 h1{
-    color: #000;
-    font-family: Averta Demo PE Cutted Demo;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;    
-    margin-top: 239px;
-    margin-left: 120px;
+    background: linear-gradient(0deg, #8053FF, #8053FF),
+linear-gradient(0deg, #23155B, #23155B);
+width: 415px;
+height: 128px;
+font-family: Poppins;
+font-size: 52px;
+font-weight: 700;
+line-height: 64px;
+letter-spacing: 0.02em;
+text-align: left;
+text-align: left;
+
+font-family: Poppins;
+font-size: 52px;
+font-weight: 700;
+line-height: 64px;
+letter-spacing: 0.02em;
+text-align: left;
+
+}
+.footer{
+    background: #23155B;
+    width: Fill (1,920px);
+    height: Hug (918px);
+    padding: 179px, 370px, 179px, 370px;
+    border-radius: 250px, 0px, 0px, 0px;
+    gap: 10px;
+    
 }
